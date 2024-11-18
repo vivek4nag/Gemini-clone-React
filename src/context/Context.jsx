@@ -10,7 +10,7 @@ export const Context = createContext()
 // below we are providing the context with ContextProvider ==> Inside ContextProvider, a Provider component, Context.Provider, wraps props.children, meaning all components within ContextProvider can access the contextValue.
 const ContextProvider = (props) => {
 
-    const[input, setInput] = useState("") // to cater input
+    const[input, setInput] = useState("") // input data save krne ke liye
     const [recentPrompt, setRecentprompt] = useState("") // to set the input value into prompt when send button is clicked
     const [ prevPrompts, setPrevPrompts] = useState([]) // to handle prev input & display on side panel
     const [ showResult, setShowResult] = useState(false) // if true it will hide all the stuff & display the result
@@ -19,7 +19,17 @@ const ContextProvider = (props) => {
 
 
     const onSent = async (prompt) => {
-        await run(prompt)
+
+        setLoading(true)
+        setResultData("") // clearing the prev result
+        setShowResult(true)
+        setRecentprompt(input) // wo ans se pehle upar jo ques pucha hai wohi idkhata hai.. wohi krne ke liye
+
+
+        const response = await run(input)
+        setResultData(response)
+        setLoading(false) // dat load hone ke baad loading bandh
+        setInput("") // input field khali kr do 
     }
 
     // onSent("explain peace by pieces in international relations")
@@ -28,13 +38,13 @@ const ContextProvider = (props) => {
         prevPrompts,
         setPrevPrompts,
         onSent,
-        setRecentprompt,
         recentPrompt,
+        setRecentprompt,
         showResult,
         loading,
         resultData,
         input,
-        setInput,
+        setInput
     }
     
 

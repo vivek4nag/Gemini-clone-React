@@ -22,13 +22,23 @@ const generationConfig = {
 };
 
 async function run(prompt) {
-  const chatSession = model.startChat({
-    generationConfig,
-    history: [],
-  });
+  try {
+    const chatSession = model.startChat({
+      generationConfig,
+      history: [],
+    });
+  
+    const result = await chatSession.sendMessage(prompt);
+    // console.log(result);
+    
+    console.log(result.response.text());
+  
+    return result.response.text() // return krke resultdata state variable me rkhenge & then display krenge
 
-  const result = await chatSession.sendMessage(prompt);
-  console.log(result.response.text());
+  } catch (error) {
+    console.error(error)
+  }
+  
 }
 
 export default run;
