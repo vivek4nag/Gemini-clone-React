@@ -14,6 +14,7 @@ const Main = () => {
         showResult,
         loading,
         resultData,
+        cardClick
     } = useContext(Context);
 
     const parsedHTML = marked(resultData || ""); // ye backchodi kr rhe bcz jo resultData aarha api se wo markdown format me hai & hum usko normal me dikha rhe. md ko normal me convert krne ke liye ek marked package install kiya hai & us function me humne result data ko pass krwakr simply parsedHTML ko render krwa diya hai niche .
@@ -37,23 +38,24 @@ const Main = () => {
                         </div>
 
                         <div className="cards">
-                            <div className="card">
-                                <p>Suggest me a road trip idea</p>
-                                <img src={assets.compass_icon} alt="icon images" />
-                            </div>
 
-                            <div className="card">
+                            <div onClick={() => cardClick("summerize the concept: world system theory")} className="card">
                                 <p>summerize the concept: world system theory </p>
                                 <img src={assets.message_icon} alt="icon images" />
                             </div>
 
-                            <div className="card">
+                            <div onClick={() => cardClick("Suggest me a road trip idea")} className="card">
+                                <p>Suggest me a road trip idea</p>
+                                <img src={assets.compass_icon} alt="icon images" />
+                            </div>
+
+                            <div onClick={() => cardClick("Brainstorm ideas for new workout routine")} className="card">
                                 <p>Brainstorm ideas for new workout routine</p>
                                 <img src={assets.bulb_icon} alt="icon images" />
                             </div>
 
-                            <div className="card">
-                                <p>analyze data</p>
+                            <div onClick={() => cardClick("help me write code")} className="card">
+                                <p>help me write code</p>
                                 <img src={assets.code_icon} alt="icon images" />
                             </div>
                         </div>
@@ -92,8 +94,8 @@ const Main = () => {
                             placeholder="Enter a Prompt here"
                         />
                         <div>
-                            <img src={assets.gallery_icon} alt="inputicon" />
-                            <img src={assets.mic_icon} alt="inputicon" />
+                            {/* <img src={assets.gallery_icon} alt="inputicon" /> */}
+                            {/* <img src={assets.mic_icon} alt="inputicon" /> */}
                             <img
                                 onClick={() => onSent()}
                                 src={assets.send_icon}
