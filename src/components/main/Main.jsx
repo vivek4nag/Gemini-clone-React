@@ -15,7 +15,8 @@ const Main = () => {
 
     return (
         <>
-            <div className="font-outfit bg-[#1e1f20] flex-1 relative pb-[15vh] min-h-[100vh]">
+            <div className="font-outfit bg-[#1e1f20] flex-1 relative pb-[15vh] min-h-[100vh]"
+            style={{ userSelect: "none" }}>
             
                 <Navbar/>
 

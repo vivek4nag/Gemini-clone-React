@@ -1,3 +1,3 @@
-GEMINI CLONE USING REACT (BETA VERSION)
+# GEMINI CLONE USING REACT (BETA VERSION)
 
-link => https://gemini-vivek4nag.netlify.app/
+[click here](https://gemini-vivek4nag.netlify.app/)
