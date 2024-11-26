@@ -1,115 +1,29 @@
-import { assets } from "../../assets/assets";
-import "./Main.css";
 import React, { useContext } from "react";
 import { Context } from "../../context/Context";
-import { marked } from 'marked';
-
+import { marked } from "marked";
+import Navbar from "../Navbar";
+import MainContent from "../MainContent";
 
 const Main = () => {
     const {
-        input,
-        setInput,
-        onSent,
-        recentPrompt,
-        showResult,
-        loading,
+        
         resultData,
-        cardClick
+        
     } = useContext(Context);
 
     const parsedHTML = marked(resultData || ""); // ye backchodi kr rhe bcz jo resultData aarha api se wo markdown format me hai & hum usko normal me dikha rhe. md ko normal me convert krne ke liye ek marked package install kiya hai & us function me humne result data ko pass krwakr simply parsedHTML ko render krwa diya hai niche .
-    
 
     return (
-        <div className="main">
-            <div className="nav">
-                <p>Gemini</p>
-                <img src={assets.user_icon} alt="" />
+        <>
+            <div className="font-outfit bg-[#1e1f20] flex-1 relative pb-[15vh] min-h-[100vh]">
+            
+                <Navbar/>
+
+                <MainContent/>
+
+                
             </div>
-
-            <div className="main-container">
-                {!showResult ? (
-                    <>
-                        <div className="greet">
-                            <p>
-                                <span>Hello, my Friend.</span>
-                            </p>
-                            <p>How can I help You Today ?</p>
-                        </div>
-
-                        <div className="cards">
-
-                            <div onClick={() => cardClick("summerize the concept: world system theory")} className="card">
-                                <p>summerize the concept: world system theory </p>
-                                <img src={assets.message_icon} alt="icon images" />
-                            </div>
-
-                            <div onClick={() => cardClick("Suggest me a road trip idea")} className="card">
-                                <p>Suggest me a road trip idea</p>
-                                <img src={assets.compass_icon} alt="icon images" />
-                            </div>
-
-                            <div onClick={() => cardClick("Brainstorm ideas for new workout routine")} className="card">
-                                <p>Brainstorm ideas for new workout routine</p>
-                                <img src={assets.bulb_icon} alt="icon images" />
-                            </div>
-
-                            <div onClick={() => cardClick("help me write code")} className="card">
-                                <p>help me write code</p>
-                                <img src={assets.code_icon} alt="icon images" />
-                            </div>
-                        </div>
-                    </>
-                ) : (
-                    <div className="result">
-                        <div className="results-title">
-                            <img src={assets.user_icon} alt="use-img" />
-                            <p>{recentPrompt}</p>
-                        </div>
-                        <div className="result-data">
-                            <img src={assets.gemini_icon} alt="gemini-logo" />
-                            {loading ? 
-                                <div className="loader">
-                                    <hr/>
-                                    <hr/>
-                                    <hr/>
-                                    <hr className="half"/>
-                                </div> : 
-                                <p dangerouslySetInnerHTML={{ __html: parsedHTML }}/>
-                                
-                                
-                            }
-                            
-                        </div>
-
-                    </div>
-                )}
-
-                <div className="main-bottom">
-                    <div className="search-box">
-                        <input
-                            onChange={(e) => setInput(e.target.value)}
-                            value={input}
-                            type="text"
-                            placeholder="Enter a Prompt here"
-                        />
-                        <div>
-                            {/* <img src={assets.gallery_icon} alt="inputicon" /> */}
-                            {/* <img src={assets.mic_icon} alt="inputicon" /> */}
-                            <img
-                                onClick={() => onSent()}
-                                src={assets.send_icon}
-                                alt="inputicon"
-                            />
-                        </div>
-                    </div>
-
-                    <p className="bottom-info">
-                        Gemini can make mistakes. Check important info.
-                    </p>
-                </div>
-            </div>
-        </div>
+        </>
     );
 };
 // dangerouslySetInnerHTML attribute renders the parsedHTML string as HTML rather than plain text. Using dangerouslySetInnerHTML ensures these tags are rendered as actual HTML. React labels this as "dangerous" bcz inserting raw HTML directly can make our app vulnerable to Cross-Site Scripting (XSS) attacks if the content is not sanitized.
