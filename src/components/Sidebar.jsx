@@ -1,7 +1,7 @@
 
-import { assets } from "../../assets/assets";
+import { assets } from "../assets/assets";
 import { useContext, useState } from "react";
-import { Context } from "../../context/Context";
+import { Context } from "../context/Context";
 
 const Sidebar = () => {
     //using extended to show or hide the sidebar at maxwidth

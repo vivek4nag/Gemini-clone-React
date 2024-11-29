@@ -1,4 +1,3 @@
-// REACT_APP_GEMINI_API_KEY = "AIzaSyB3_DXcyvpe6gqb9htX9ZvniLsG7nFPQIM";
 
 import {
   GoogleGenerativeAI,

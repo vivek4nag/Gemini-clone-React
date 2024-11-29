@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { assets } from "../assets/assets";
 import { Context } from "../context/Context";
 import { marked } from "marked";
+import Loading from "./Loading";
 
 
 const Result = () => {
@@ -16,12 +17,7 @@ const Result = () => {
             <div className="result-data flex items-start gap-5">
                 <img src={assets.gemini_icon} alt="gemini-logo" className="w-10" />
                 {loading ? (
-                    <div className="w-full flex flex-col gap-3">
-                        <hr className="line h-[9px] rounded-lg border-none bg-gradient-to-r from-[#9ed7ff] via-[#4b90ff] to-[#9ed7ff] animate-loader" />
-                        <hr className="line h-[9px] rounded-lg border-none bg-gradient-to-r from-[#9ed7ff] via-[#4b90ff] to-[#9ed7ff] animate-loader" />
-                        <hr className="line h-[9px] rounded-lg border-none bg-gradient-to-r from-[#9ed7ff] via-[#4b90ff] to-[#9ed7ff] animate-loader" />
-                        <hr className="loader-line h-[9px] rounded-lg border-none bg-gradient-to-r from-[#9ed7ff] via-[#4b90ff] to-[#9ed7ff] w-1/2 animate-loader" />
-                    </div>
+                    <Loading/>
                 ) : (
                     <p dangerouslySetInnerHTML={{ __html: parsedHTML }} className="text-[18px] font-light leading-7 text-white" />
                 )}

@@ -8,10 +8,6 @@ import Input from './Input';
 
 const MainContent = () => {
     const {
-        input,
-        setInput,
-        onSent,
-        recentPrompt,
         showResult,
     } = useContext(Context);
   return (

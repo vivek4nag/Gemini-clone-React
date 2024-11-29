@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import { Context } from "../../context/Context";
+import { Context } from "../context/Context";
 import { marked } from "marked";
-import Navbar from "../Navbar";
-import MainContent from "../MainContent";
+import Navbar from "./Navbar";
+import MainContent from "./MainContent";
 
 const Main = () => {
     const {
@@ -15,7 +15,7 @@ const Main = () => {
 
     return (
         <>
-            <div className="font-outfit bg-[#1e1f20] flex-1 relative pb-[15vh] min-h-[100vh]"
+            <div className="font-outfit bg-[#1e1f20] flex-1 relative pb-[15vh] "
             style={{ userSelect: "none" }}>
             
                 <Navbar/>
