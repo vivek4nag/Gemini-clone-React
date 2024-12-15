@@ -31,9 +31,10 @@ const Input = () => {
                 </div>
             </div>
 
-            <p className="text-[13px] my-[15px] mx-auto text-center font-light text-[#a2a2a2]">
+            <p className="text-[12px] my-[10px] mx-auto text-center font-light text-[#a2a2a2]">
                 Gemini can make mistakes and display inaccurate info, please double-check it.
             </p>
+            <p className="text-[13px] mx-auto text-center font-light text-[#a2a2a2]">Made with 💗 by Vivek Nag</p>
         </div>
     )
 }
