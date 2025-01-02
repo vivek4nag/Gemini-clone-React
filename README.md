@@ -5,7 +5,7 @@ Welcome to Gemini Clone, the AI-powered app built with React and Tailwind CSS th
 Live Preview
 
 "Why read this README when you can experience it?" <br>
-[Launch the App Now 🌌](https://gemini-vivek4nag.netlify.app/)
+[Launch the App Now 🌌](https://gemini-react-vivek04.netlify.app/)
 
 ## Features 🛠️
 
